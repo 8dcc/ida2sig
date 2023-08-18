@@ -3,7 +3,7 @@ CC=gcc
 CFLAGS=-Wall -Wextra
 LDFLAGS=
 
-BIN=ida2sig.out sig2ida.out
+BIN=ida2sig sig2ida
 
 .PHONY: clean all
 
@@ -16,5 +16,5 @@ clean:
 
 # -------------------------------------------
 
-$(BIN): %.out : src/%.c
+$(BIN): % : src/%.c
 	$(CC) $(CFLAGS) -o $@ $< $(LDFLAGS)
