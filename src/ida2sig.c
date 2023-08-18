@@ -53,6 +53,9 @@ int main(int argc, char** argv) {
                 putchar(sig[i]);
                 was_pre_hex = false;
                 break;
+            default:
+                /* Invalid pattern */
+                break;
         }
     }
 

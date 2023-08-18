@@ -70,6 +70,9 @@ int main(int argc, char** argv) {
                 was_pre_hex = 0;
 
                 break;
+            default:
+                /* Invalid pattern */
+                break;
         }
     }
 
