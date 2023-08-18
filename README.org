@@ -11,6 +11,8 @@
 Simple C program for converting an [[https://hex-rays.com/ida-pro/][IDA]] pattern (=89 04 24 FF 92 ? ? ? ? 89 34 24=)
 into a code pattern (=\x89\x04\x24\xFF\x92????\x89\x34\x24=) or vice versa.
 
+The code patterns are meant to use with a function like [[https://github.com/8dcc/tf2-cheat/blob/c783227aaba6d3f5d326abae60cac340fb5f6bfc/src/util.c#L46-L98][this one]].
+
 * Building
 
 #+begin_src console
