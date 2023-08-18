@@ -8,8 +8,8 @@
 #+TOC: headlines 2
 
 * Description
-Simple C program for converting an [[https://hex-rays.com/ida-pro/][IDA]] pattern ( ="89 04 24 FF 92 ? ? ? ? 89 34 24"= )
-into a code pattern ( ="\x89\x04\x24\xFF\x92????\x89\x34\x24"= ) or vice versa.
+Simple C program for converting an [[https://hex-rays.com/ida-pro/][IDA]] pattern (=89 04 24 FF 92 ? ? ? ? 89 34 24=)
+into a code pattern (=\x89\x04\x24\xFF\x92????\x89\x34\x24=) or vice versa.
 
 * Building
 
