@@ -25,9 +25,9 @@ $ make
 * Usage
 
 #+begin_src console
-$ ./ida2sig.out "89 04 24 FF 92 ? ? ? ? 89 34 24"
+$ ./ida2sig "89 04 24 FF 92 ? ? ? ? 89 34 24"
 "\x89\x04\x24\xFF\x92????\x89\x34\x24"
 
-$ ./sig2ida.out "\x89\x04\x24\xFF\x92????\x89\x34\x24"
+$ ./sig2ida "\x89\x04\x24\xFF\x92????\x89\x34\x24"
 "89 04 24 FF 92 ? ? ? ? 89 34 24"
 #+end_src
