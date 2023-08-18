@@ -1,25 +1,21 @@
-#+title: Title
+#+title: ida2sig
 #+options: toc:nil
 #+startup: showeverything
 #+author: 8dcc
 
-#+begin_comment
-*TODO*: Change project-name and title
-*TODO*: Change output.out in Makefile
-#+end_comment
-
-*Short description.*
+*Convert IDA signature to code signature and vice versa.*
 
 #+TOC: headlines 2
 
 * Description
-Long description.
+Simple C program for converting an [[https://hex-rays.com/ida-pro/][IDA]] pattern (~"89 04 24 FF 92 ? ? ? ? 89 34 24"~)
+into a code pattern (="\x89\x04\x24\xFF\x92????\x89\x34\x24"=) or vice versa.
 
 * Building
 
 #+begin_src console
-$ git clone https://github.com/8dcc/project-name
-$ cd project-name
+$ git clone https://github.com/8dcc/ida2sig
+$ cd ida2sig
 $ make
 ...
 #+end_src
@@ -27,6 +23,9 @@ $ make
 * Usage
 
 #+begin_src console
-$ ./project-name.out --help
-...
+$ ./ida2sig.out "89 04 24 FF 92 ? ? ? ? 89 34 24"
+"\x89\x04\x24\xFF\x92????\x89\x34\x24"
+
+$ ./sig2ida.out "\x89\x04\x24\xFF\x92????\x89\x34\x24"
+"89 04 24 FF 92 ? ? ? ? 89 34 24"
 #+end_src
