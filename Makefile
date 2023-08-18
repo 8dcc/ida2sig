@@ -17,4 +17,4 @@ clean:
 # -------------------------------------------
 
 $(BIN): %.out : src/%.c
-	$(CC) $(CFLAGS) -o $@ $(OBJS) $(LDFLAGS)
+	$(CC) $(CFLAGS) -o $@ $< $(LDFLAGS)
