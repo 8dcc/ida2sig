@@ -3,29 +3,18 @@ CC=gcc
 CFLAGS=-Wall -Wextra
 LDFLAGS=
 
-# TODO: Add object files and rename
-OBJS=obj/main.c.o
-BIN=output.out
+BIN=ida2sig.out sig2ida.out
 
-.PHONY: clean all run
+.PHONY: clean all
 
 # -------------------------------------------
 
 all: $(BIN)
 
-run: $(BIN)
-	./$<
-
 clean:
-	rm -f $(OBJS)
 	rm -f $(BIN)
 
 # -------------------------------------------
 
-$(BIN): $(OBJS)
+$(BIN): %.out : src/%.c
 	$(CC) $(CFLAGS) -o $@ $(OBJS) $(LDFLAGS)
-
-$(OBJS): obj/%.c.o : src/%.c
-	@mkdir -p obj/
-	$(CC) $(CFLAGS) -c -o $@ $< $(LDFLAGS)
-
