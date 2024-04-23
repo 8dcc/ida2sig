@@ -11,14 +11,18 @@
 Simple C program for converting an [[https://hex-rays.com/ida-pro/][IDA]] pattern (=89 04 24 FF 92 ? ? ? ? 89 34 24=)
 into a code pattern (=\x89\x04\x24\xFF\x92????\x89\x34\x24=) or vice versa.
 
-The code patterns are meant to use with a function like [[https://github.com/8dcc/tf2-cheat/blob/c783227aaba6d3f5d326abae60cac340fb5f6bfc/src/util.c#L46-L98][this one]].
+The code patterns are meant to be used with a signature scanning library such as
+[[https://github.com/8dcc/libsigscan][8dcc/libsigscan]]. See also my [[https://8dcc.github.io/programming/signature-scanning.html][Signature scanning in C]] blog entry.
 
-* Building
+* Building and installing
 
 #+begin_src console
 $ git clone https://github.com/8dcc/ida2sig
 $ cd ida2sig
 $ make
+...
+
+$ sudo make install
 ...
 #+end_src
 
@@ -27,6 +31,10 @@ $ make
 #+begin_src console
 $ ./ida2sig "89 04 24 FF 92 ? ? ? ? 89 34 24"
 "\x89\x04\x24\xFF\x92????\x89\x34\x24"
+
+$ ./ida2sig -m "89 04 24 FF 92 ? ? ? ? 89 34 24"  # Use mask
+code = "\x89\x04\x24\xFF\x92\x00\x00\x00\x00\x89\x34\x24"
+mask = "xxxxx????xxx"
 
 $ ./sig2ida "\x89\x04\x24\xFF\x92????\x89\x34\x24"
 "89 04 24 FF 92 ? ? ? ? 89 34 24"
