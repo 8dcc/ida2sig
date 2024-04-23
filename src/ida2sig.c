@@ -39,10 +39,6 @@ int main(int argc, char** argv) {
     /* Last argument has to be the signature */
     const char* sig = argv[argc - 1];
 
-    /* Skip preceding spaces from pattern, if any */
-    while (*sig == ' ')
-        sig++;
-
     int mask_p  = 0;
     int mask_sz = 100;
     char* mask  = NULL;
