@@ -1,14 +1,16 @@
 
 CC=gcc
 CFLAGS=-Wall -Wextra
-LDFLAGS=
+LDLIBS=
 
 BIN=ida2sig sig2ida
-INSTALL_DIR=/usr/local/bin
 
-.PHONY: clean all
+PREFIX=/usr/local
+BINDIR=$(PREFIX)/bin
 
 #-------------------------------------------------------------------------------
+
+.PHONY: all clean
 
 all: $(BIN)
 
@@ -16,11 +18,10 @@ clean:
 	rm -f $(BIN)
 
 install: $(BIN)
-	mkdir -p $(INSTALL_DIR)
-	install -m 755 ./ida2sig $(INSTALL_DIR)/ida2sig
-	install -m 755 ./sig2ida $(INSTALL_DIR)/sig2ida
+	install -D -m 755 ./ida2sig -t $(BINDIR)
+	install -D -m 755 ./sig2ida -t $(BINDIR)
 
 #-------------------------------------------------------------------------------
 
 $(BIN): % : src/%.c
-	$(CC) $(CFLAGS) -o $@ $< $(LDFLAGS)
+	$(CC) $(CFLAGS) -o $@ $< $(LDLIBS)
